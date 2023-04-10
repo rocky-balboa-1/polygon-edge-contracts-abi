@@ -1,0 +1,319 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IChildValidatorSetBase",
+  "sourceName": "contracts/interfaces/IChildValidatorSetBase.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "key",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "epoch",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "pbftRound",
+          "type": "uint256"
+        }
+      ],
+      "name": "DoubleSignerSlashed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "startBlock",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "endBlock",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "epochRoot",
+          "type": "bytes32"
+        }
+      ],
+      "name": "NewEpoch",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "startBlock",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endBlock",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "epochRoot",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct Epoch",
+          "name": "epoch",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "epochId",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "validator",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "signedBlocks",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct UptimeData[]",
+              "name": "uptimeData",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalBlocks",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Uptime",
+          "name": "uptime",
+          "type": "tuple"
+        }
+      ],
+      "name": "commitEpoch",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "curEpochId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "pbftRound",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "startBlock",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endBlock",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "epochRoot",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct Epoch",
+          "name": "epoch",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "epochId",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "validator",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "signedBlocks",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct UptimeData[]",
+              "name": "uptimeData",
+              "type": "tuple[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalBlocks",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Uptime",
+          "name": "uptime",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "epochId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "eventRoot",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "currentValidatorSetHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "nextValidatorSetHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "blockHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes",
+              "name": "bitmap",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IChildValidatorSetBase.DoubleSignerSlashingInput[]",
+          "name": "inputs",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "commitEpochWithDoubleSignerSlashing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCurrentValidatorSet",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "getEpochByBlock",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "startBlock",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "endBlock",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "epochRoot",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct Epoch",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalActiveStake",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
